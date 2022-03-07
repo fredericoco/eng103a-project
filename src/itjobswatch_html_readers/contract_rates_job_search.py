@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from src.http_management.http_manager import HttpManager
+from src.http_management.http_manager import HtmlObjectManager
 from config_manager import itjobswatch_contract_search_test_page
 
 import re
@@ -7,7 +7,7 @@ import re
 class ContractRatesJobSearch:
 
     def __init__(self, file_or_url_address):
-        self._html_manager = HttpManager(file_or_url_address)
+        self._html_manager = HtmlObjectManager(file_or_url_address)
         self.job_search = BeautifulSoup(self._html_manager.html, 'html.parser')
         self._validate_search_returns_a_role()
 

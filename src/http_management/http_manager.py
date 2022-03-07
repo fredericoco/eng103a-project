@@ -3,7 +3,7 @@ import os.path
 from config_manager import itjobswatch_home_page_test_file, itjobswatch_home_page_url, itjobswatch_perm_search_test_page
 
 
-class HttpManager:
+class HtmlObjectManager:
 
     def __init__(self, file_or_url_location):
         self.url_response = None
