@@ -47,8 +47,9 @@ class CmdUserInterface:
         option_selected = 2
 
 
-        if option_selected.lower() == 'exit':
-            exit()
+        if type(option_selected) == str:
+            if option_selected.lower() == 'exit':
+                exit()
         elif option_selected == '':
             self.manage_get_ITJW_top_30_menu()
         elif int(option_selected) == 1:
