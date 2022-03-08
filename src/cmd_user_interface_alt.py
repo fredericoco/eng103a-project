@@ -26,8 +26,9 @@ class CmdUserInterface:
         print(self._generate_menu())
         option_selected = 1
 
-        if option_selected.lower() == 'exit':
-            exit()
+        if str(option_selected):
+            if option_selected.lower() == 'exit':
+                exit()
         elif option_selected == '':
             self.menu_control()
         elif int(option_selected) == 0 or int(option_selected) > len(self.menu_options):
