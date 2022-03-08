@@ -6,7 +6,6 @@ import pytest
 import csv
 import os
 
-
 class TestCSVGenerator:
 
     # The below fixture sets up whether you are testing locally on stubs or against live HTTP calls

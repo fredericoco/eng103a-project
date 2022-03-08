@@ -7,14 +7,25 @@
 <link rel="stylesheet" href="/static/body.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="/static/font-awesome.min.css">
+
 {% block stylesheets %}{% endblock %}
 <style>
 body {font-family: "Lato", sans-serif}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+h2 {font-weight: 700 !important; font-size: 43px !important;}
 {% block styles %}
 {% endblock %}
 </style>
 </head>
-<body>
+<body style="background-color: #efefef !important">
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -48,42 +59,18 @@ body {font-family: "Lato", sans-serif}
     <img src="/static/sparta.png" style="width:100%" class="spartaimage">
   </div>
   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <div class="w3-container w3-content w3-center" style="max-width:1600px" id="band">
     <h2 class="w3-wide">{% block title2 %}{% endblock %}</h2>
     <p class="w3-opacity"><i>We are Spartans</i></p>
     <p class="w3-justify" style="text-align:center !important">{% block descriptor %}{% endblock %}</p>
-    <div class="w3-row w3-padding-32">
     {% block body %}{% endblock %}
+    <div class="w3-row w3-padding-32">
 
   </div>
-
-<!-- 
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
-      </header>
-      <div class="w3-container">
-        <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="How many?">
-        <p><label><i class="fa fa-user"></i> Send To</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="Enter email">
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
-  </div> -->
-
-  
-<!-- End Page Content -->
 </div>
 
 <!-- Image of location/map -->
 <img src="/static/sparta-office.png" class="w3-image w3-greyscale-min" style="width:100%">
-
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge" style="background-color: #eee!important">
   <p class="w3-medium">Powered by <b>SpartaGlobal</b> and <b>Engineering 103A</b></p>
@@ -109,6 +96,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
+<script src="/static/sort-table.js"></script>
 </body>
 </html>

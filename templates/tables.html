@@ -1,14 +1,54 @@
 {% extends 'base.html' %}
+
 {% block title %}Home{% endblock %}
+
   {% block title2 %}IT Jobs Watch{% endblock %}
+  {% block stylesheets %}
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="/static//static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+
+  {% endblock %}
+
   {% block descriptor %}We've compiled the top 30 IT Jobs using a webscraper to show you a cleaned-up and clutter-free table containing the information you need below:{% endblock %}
+
   {% block body %}
-  {% for table in tables %}
-  <h2>{{titles[loop.index]}}</h2>
-  <tr>
-  {% for values in table %}
-  <td>{{ values|safe }}</td>
-    {% endfor %}
-  </tr>
-  {% endfor %}  
+  <div class="limiter">
+    <div class="container-table100" style="background-color: #efefef !important">
+        <div class="wrap-table100">   
+  <div class="table100 ver3 m-b-110">
+    <table data-vertable="ver3" class="sortable">
+        <thead>
+            <tr class="row100 head">
+                {% for header in columns %}
+                <th class="unselectable column100 column{{ loop.index }}" data-column="column{{loop.index}}" style="text-align:center !important">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for value in myData%}
+        {% for entry in value %}
+        <tr class="row100">
+        {% for wentry in entry %}
+        <td class="column100 column{{ loop.index }}" data-column="column{{loop.index}}">{{ wentry }}</td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+  </div></div></div></div>
   {% endblock %}

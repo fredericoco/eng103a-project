@@ -13,7 +13,13 @@ app = Flask(__name__)
 @app.route("/")
 # setting up a default page
 def index():
-    return render_template('index.html')
+    top_30 = ItJobsWatchHomePageTop30(itjobswatch_home_page_url())
+    Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url()).get_top_30_table_elements_into_array(), os.path.expanduser('top30/'), 'ItJobsWatchTop30.csv') #, top_30.get_table_headers_array())
+    data = pd.read_csv('top30/ItJobsWatchTop30.csv', header=None)
+    data.columns=["", "Job Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
+    return render_template('index.html', myData=[data.values], columns=data.columns)
+    
+
 
 
 @app.route("/team/")
@@ -24,13 +30,12 @@ def team():
 def tools():
     return render_template("tools.html")
 
-@app.route("/tables")
-def table():
-    top_30 = ItJobsWatchHomePageTop30(itjobswatch_home_page_url())
-    Top30CSVGenerator().generate_top_30_csv(top_30.get_top_30_table_elements_into_array(), os.path.expanduser('top30/'), 'ItJobsWatchTop30.csv', top_30.get_table_headers_array())
-    filename = 'top30/ItJobsWatchTop30.csv'
-    data = pd.read_csv(filename)
-    # data.columns=["6 Months up to 8 March 2022", "YoY Change","Median Salary","Median Salary YoY Change","Total Unique Permanent Jobs During Period","Live Jobs"]
-    return render_template('tables.html', tables=[data.to_html()], titles=[''])
+# @app.route("/tables")
+# def table():
+#     top_30 = ItJobsWatchHomePageTop30(itjobswatch_home_page_url())
+#     Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url()).get_top_30_table_elements_into_array(), os.path.expanduser('top30/'), 'ItJobsWatchTop30.csv') #, top_30.get_table_headers_array())
+#     data = pd.read_csv('top30/ItJobsWatchTop30.csv', header=None)
+#     data.columns=["", "Job Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
+#     return render_template('tables.html', myData=[data.values], columns=data.columns)
     
 

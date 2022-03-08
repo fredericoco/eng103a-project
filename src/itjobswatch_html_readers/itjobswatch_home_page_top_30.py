@@ -26,8 +26,11 @@ class ItJobsWatchHomePageTop30:
 
     def get_top_30_table_elements_into_array(self):
         job_list = []
-
+        counter = 0
         for elements in self._get_top_30_table().find_all('tr'):
+            if counter > 30:
+                break
+            counter += 1
             job = []
             for job_row_items in elements.find_all('td'):
                 if job_row_items.attrs['class'] != ['c1']:
