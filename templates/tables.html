@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+  {% block title2 %}IT Jobs Watch{% endblock %}
+  {% block descriptor %}We've compiled the top 30 IT Jobs using a webscraper to show you a cleaned-up and clutter-free table containing the information you need below:{% endblock %}
+  {% block body %}
+  {% for table in tables %}
+  <h2>{{titles[loop.index]}}</h2>
+  <tr>
+  {% for values in table %}
+  <td>{{ values|safe }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}  
+  {% endblock %}
