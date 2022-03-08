@@ -1,3 +1,5 @@
+import sys
+
 from src.csv_generators.top_30_csv_generator import Top30CSVGenerator
 from src.itjobswatch_html_readers.itjobswatch_home_page_top_30 import ItJobsWatchHomePageTop30
 from config_manager import itjobswatch_home_page_url, itjobswatch_home_page_test_file, get_test_env_setting
@@ -5,6 +7,7 @@ from definitions import TEST_RESOURCES_FOLDER
 import pytest
 import csv
 import os
+
 
 
 class TestCSVGenerator:
