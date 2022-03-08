@@ -4,7 +4,7 @@ from src.itjobswatch_html_readers.itjobswatch_home_page_top_30 import ItJobsWatc
 from src.csv_generators.top_30_csv_generator import Top30CSVGenerator
 import os
 from flask import Flask, render_template
-import pandas as pd
+
 
 app = Flask(__name__)
 # creating an app instance
