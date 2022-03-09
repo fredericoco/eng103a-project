@@ -18,7 +18,17 @@
   {% block descriptor %}We've compiled the top 30 IT Jobs using a webscraper to show you a cleaned-up and clutter-free table containing the information you need below:{% endblock %}
 
   {% block body %}
+
   <div class="limiter">
+    <div class="example" style="padding: 10px 8.5%">
+      <div class="row">
+        <div class="col-md-3">
+          <form method="get" action="/download/">
+          <input type="submit" class="btn btn-danger btn-block" value="Download Top 30">
+          </form>
+        </div>
+      </div>
+    </div>
     <div class="container-table100" style="background-color: #efefef !important">
         <div class="wrap-table100">   
   <div class="table100 ver4 m-b-110">

@@ -11,146 +11,169 @@
     height: 180px !important;
     object-fit: cover !important;
 } 
+.setheight{height:450px}
+.img-rounded{max-height:250px;object-fit:fill}
 .w3-top {
   font-size: 15px !important;
   line-height: 1.5 !important;
 
 }
-<!-- p {
-  display: block;
-  font-weight:bold;
-} -->
 {% endblock %}
   {% block title2 %}TOOLS{% endblock %}
-  {% block descriptor %}Throughout the development of this application, we've had access to a myriad of tools that makes up our tech stack. These tools are crucial for the development, deployment and monitoring for this project. Below, we'll list the tools that have helped us out a ton:{% endblock %}
+  {% block descriptor %}Throughout our time on this course we have used various tools to help us accomplish tasks. You can see these tools below:{% endblock %}
   {% block body %}
       <div class="example">
         <h2 class="example-title">Tools</h2>
         <div class="row">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-1.jpg">
+              <img class="img-rounded" src="/static/tools/python.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Python</h3>
+                <p>Python language was taught in the first few weeks and used in the final project to run the webscraping tool.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-2.jpg">
+              <img class="img-rounded" src="/static/tools/Jenkins.jpg">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Jenkins</h3>
+                <p>Jenkins was used to automate tasks.We first used Jenkins to create a CI/CD pipeline,automate an IaC task with ansible, and more importantly in the final project it was used to </p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-3.jpg">
+              <img class="img-rounded" src="/static/tools/Docker1.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Docker</h3>
+                <p>Docker was used to create containerised webpages.In our final project it was used to host our application.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-4.jpg">
+              <img class="img-rounded" src="/static/tools/github.jpg">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Github</h3>
+                <p>Github was used to store the code in a repository, new code was pushed to Github on the dev branch, which triggered the webhook and started the automation process. </p>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-1.jpg">
+              <img class="img-rounded" src="/static/tools/terraform.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Terraform</h3>
+                <p>Terraform was used to create infrastructure with code.It can also be used to create instances and important infrastructure on AWS. </p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-2.jpg">
+              <img class="img-rounded" src="/static/tools/Kubernetes-Logo.wine.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Kubernetes</h3>
+                <p>Kubernetes was used to orchestrate containerised applications to run on a cluster of hosts.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-3.jpg">
+              <img class="img-rounded" src="/static/tools/Grafana_logo.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Grafana</h3>
+                <p>Grafana is a dashboard used to monitor the kubernetes cluster.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-4.jpg">
+              <img class="img-rounded" src="/static/tools/AWS-S3-minh.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>AWS S3</h3>
+                <p>Storage system on AWS.It has a range of uses going from disaster recovery to regular database storage. </p>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-1.jpg">
+              <img class="img-rounded" src="/static/tools/aws-cloudwatch-logo-png-transparent.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Cloudwatch</h3>
+                <p>Used to monitor the ec2 instances on AWS.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-2.jpg">
+              <img class="img-rounded" src="/static/tools/Amazon ec2.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Amazon ec2</h3>
+                <p>Instances create here, used to host Jenkins master and agent node and kubernetes cluster.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-3.jpg">
+              <img class="img-rounded" src="/static/tools/Pytest.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Pytest</h3>
+                <p>Pytest was used to run tests on the app code. Key part of the TDD.</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-3 setheight">
             <div class="thumbnail">
-              <img class="img-rounded" src="/static/tools/thumbnail-4.jpg">
+              <img class="img-rounded" src="/static/tools/ansible1.png">
               <div class="caption text-center">
-                <h3>Thumbnail label</h3>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
-                <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <h3>Ansible</h3>
+                <p>Flask was used to create the webpage in a python environment.</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="row">
+        <div class="col-sm-6 col-md-3 setheight">
+            <div class="thumbnail">
+              <img class="img-rounded" src="/static/tools/1200px-Prometheus_software_logo.svg.png">
+              <div class="caption text-center">
+                <h3>Prometheus</h3>
+                <p>Prometheus was used to monitor and alert functionality for cloud environments, in our case Kubernetes.</p>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-6 col-md-3 setheight">
+            <div class="thumbnail">
+              <img class="img-rounded" src="/static/tools/Flask.png">
+              <div class="caption text-center">
+                <h3>Flask</h3>
+                <p>Flask was used to create the webpage in a python environment.</p>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-6 col-md-3 setheight">
+            <div class="thumbnail">
+              <img class="img-rounded" src="/static/tools/ubuntu_18.04.jpg">
+              <div class="caption text-center">
+                <h3>Ubuntu</h3>
+                <p>The ubuntu operating system was used for any instances created.</p>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-6 col-md-3 setheight">
+            <div class="thumbnail">
+              <img class="img-rounded" src="/static/tools/pycharm.jpg">
+              <div class="caption text-center">
+                <h3>Pycharm</h3>
+                <p>Development environment used to code in python.</p>
+              </div>
+            </div>
+          </div>
+        </div>
   {% endblock %}
