@@ -45,7 +45,8 @@
         {% for entry in value %}
         <tr class="row100">
         {% for wentry in entry %}
-        <td class="column100 column{{ loop.index }}" data-column="column{{loop.index}}">{{ wentry }}</td>
+        {% set dentry = wentry|string %}
+        <td class="column100 column{{ loop.index }}" data-column="column{{loop.index}}">{{ dentry[1:] }}</td>
         {% endfor %}
         </tr>
         {% endfor %}
