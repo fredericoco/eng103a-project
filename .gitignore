@@ -12,3 +12,4 @@ Vagrant/
 /IaC/S3/.terraform
 /IaC/VPC/.terraform
 /IaC/NFS-EC2/.terraform
+/IaC/Jenkins-EC2/.terraform

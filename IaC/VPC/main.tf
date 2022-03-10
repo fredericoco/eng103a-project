@@ -256,7 +256,7 @@ resource "aws_security_group" "eng103a_project_k8s_sg" {
       to_port          = 32767
     },
     {
-      cidr_blocks      = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
+      cidr_blocks      = ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24", "10.0.15.0/24"]
       description      = "allow access on port 6443 from anywhere"
       from_port        = 6443
       ipv6_cidr_blocks = ["::/0"]
