@@ -8,9 +8,9 @@ import pandas as pd
 import time
 import shutil
 
+
 app = Flask(__name__)
 # creating an app instance
-
 # use a decorator @ to define the route for our web page
 @app.route("/")
 # setting up a default page
@@ -43,3 +43,6 @@ def team():
 def tools():
     return render_template("tools.html")
 
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
