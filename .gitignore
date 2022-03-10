@@ -5,3 +5,11 @@
 __pycache__/
 .vagrant
 Vagrant/
+/IaC/ASG/.terraform
+/IaC/K8-EC2/.terraform
+/IaC/K8-EC2 copy/.terraform
+/IaC/Monitoring-EC2/.terraform
+/IaC/S3/.terraform
+/IaC/VPC/.terraform
+/IaC/NFS-EC2/.terraform
+/IaC/Jenkins-EC2/.terraform
