@@ -4,9 +4,20 @@
 <title>{% block title %}{% endblock %}</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/static/body.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<link rel="stylesheet" href="/static/css/body.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="/static/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="static/icons/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="/static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<link rel="stylesheet" type="text/css" href="/static/css/site.min.css">
+
 
 {% block stylesheets %}{% endblock %}
 <style>
@@ -36,14 +47,6 @@ p {font-weight: 700 !important; margin-bottom: 1rem !important;}
     <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
     <a href="/team/" class="w3-bar-item w3-button w3-padding-large w3-hide-small">THE TEAM</a>
     <a href="/tools/" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOOLS USED</a>
-    <!-- <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-        <a href="#" class="w3-bar-item w3-button">Extras</a>
-        <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
-    </div> -->
   </div>
 </div>
 
@@ -58,13 +61,13 @@ p {font-weight: 700 !important; margin-bottom: 1rem !important;}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="/static/spartatalent.jpg" style="width:100%; position: relative; top: -70px;" class="spartaimage">
+    <img src="/static/spartatalent.png" style="width:100%; position: relative; top: -70px;" class="spartaimage">
   </div>
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center" style="max-width:1600px" id="band">
     <h2 class="w3-wide" style="color: #333; font-family: sans-serif !important; margin-top: 0px;">{% block title2 %}{% endblock %}</h2>
     <p class="w3-opacity"><i>We are Spartans</i></p>
-    <p class="w3-justify" style="text-align:center !important">{% block descriptor %}{% endblock %}</p>
+    <p class="w3-justify" style="text-align:center !important; font-size: 18px;">{% block descriptor %}{% endblock %}</p>
     {% block body %}{% endblock %}
     <div class="w3-row w3-padding-32">
 
@@ -74,13 +77,32 @@ p {font-weight: 700 !important; margin-bottom: 1rem !important;}
 <!-- Image of location/map -->
 <img src="/static/sparta-office.png" class="w3-image w3-greyscale-min" style="width:100%;">
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge" style="background-color: #eee!important">
-  <p class="w3-medium">Powered by <b>SpartaGlobal</b> and <b>Engineering 103A</b></p>
-</footer>
 
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="footer">
+      <div class="container">
+        <div class="clearfix">
+          <div class="footer-logo"><a href="https://www.spartaglobal.com/"><img style="max-width: 10em;" src="/static/sparta.png"></a></div>
+          <dl class="footer-nav" style="margin-left: 50px;">
+            <dt class="nav-title">THE APP</dt>
+            <dd class="nav-item"><a href="/">Top 30 Jobs</a></dd>
+            <dd class="nav-item"><a href="/team/">The Team</a></dd>
+            <dd class="nav-item"><a href="/tools/">The Tools</a></dd>
+          </dl>
+        </div>
+        <div class="footer-copyright text-center">Powered by SpartaGlobal and Engineering 103A.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/static/sort-table.js"></script>
 <script>
 
 // Used to toggle the menu on small screens when clicking on the menu button
+{% block functions %}{% endblock %}
 function myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
@@ -98,6 +120,5 @@ window.onclick = function(event) {
   }
 }
 </script>
-<script src="/static/sort-table.js"></script>
 </body>
 </html>
