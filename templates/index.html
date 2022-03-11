@@ -71,5 +71,7 @@
   </div></div></div></div>
   {% endblock %}
   {% block functions %} 
-  window.onload = function(){ document.getElementsByClassName('table100')[0].innerHTML = document.getElementsByClassName('table100')[0].innerHTML.replace(/Â/g, "");}
+  window.onload = function(){ document.getElementsByClassName('table100')[0].innerHTML = document.getElementsByClassName('table100')[0].innerHTML.replace(/Â/g, "");
+  sorttable.makeSortable(document.getElementsByClassName('sortable')[0]);
+  }
   {% endblock %}
