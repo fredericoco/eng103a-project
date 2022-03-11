@@ -15,7 +15,7 @@ data "template_file" "eng103a_project_template_file" {
 resource "aws_launch_configuration" "eng103a_project_launch_configuration" {
   name_prefix     = "eng103a-lc-"
   image_id        = "ami-01dd530743d8d9302"
-  instance_type   = "t2.micro"
+  instance_type   = "t2.medium"
   security_groups = ["sg-0d6ce5401866a0b04"]
   key_name        = "eng103a_project"
   user_data       = base64encode(data.template_file.eng103a_project_template_file.rendered)
@@ -36,33 +36,10 @@ resource "aws_launch_configuration" "eng103a_project_launch_configuration" {
 
 
 
-# resource "aws_launch_template" "eng103a_project_launch_configuration" {
-#   name_prefix            = "eng103a-lc-"
-#   image_id               = "ami-01dd530743d8d9302"
-#   instance_type          = "t2.micro"
-#   vpc_security_group_ids = ["sg-0d6ce5401866a0b04"]
-#   key_name               = "eng103a_project"
-#   user_data              = base64encode(data.template_file.eng103a_project_template_file.rendered)
-
-#   block_device_mappings {
-#     device_name = "/dev/sda"
-
-#     ebs {
-#       volume_size = "20"
-#       volume_type = "gp2"
-#     }
-#   }
-
-
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
-
 resource "aws_autoscaling_group" "eng103a_project_asg" {
-  min_size             = 1
-  max_size             = 3
-  desired_capacity     = 1
+  min_size             = 3
+  max_size             = 4
+  desired_capacity     = 3
   launch_configuration = aws_launch_configuration.eng103a_project_launch_configuration.name
   vpc_zone_identifier  = ["subnet-065a0ff785a6dc741"]
   name                 = "eng103a_project_asg"
