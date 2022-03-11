@@ -68,6 +68,10 @@ def download():
 @app.route("/team/")
 def team():
     return render_template('team.html')
+    
+@app.route("/team2/")
+def team2():
+    return render_template('team2.html')
 
 @app.route("/tools/")
 def tools():
