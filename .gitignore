@@ -6,3 +6,4 @@ __pycache__/
 .vagrant
 Vagrant/
 recentcsv/recentcsv.csv
+!recentcsv/static
