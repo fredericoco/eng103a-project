@@ -3,6 +3,7 @@ from config_manager import itjobswatch_home_page_url
 from src.itjobswatch_html_readers.itjobswatch_home_page_top_30 import ItJobsWatchHomePageTop30
 from src.csv_generators.top_30_csv_generator import Top30CSVGenerator
 from flask import Flask, render_template, request, redirect, send_file
+import glob
 import os
 import pandas as pd
 import time
@@ -42,19 +43,29 @@ def index():
             os.remove(os.path.join(root, file))
     top_30 = ItJobsWatchHomePageTop30(itjobswatch_home_page_url())
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    if request.method == "POST":
-        Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url() + "/default.aspx?q=&ql=&l=&ll=&id=" + str(categories[request.form['category']]) + "&p=6&e=5&sortby=&orderby=").get_top_30_table_elements_into_array(), os.path.expanduser('csvfiles/'), timestr + ".csv") #, top_30.get_table_headers_array())
-        data = pd.read_csv('csvfiles/' + timestr + '.csv', header=None, encoding='ISO-8859-1')
-        data.columns=["", "Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
-        shutil.copy('csvfiles/' + timestr + '.csv', 'recentcsv/recentcsv.csv')
-        # return render_template('index.html', myData=[data.values], columns=data.columns)
-        return render_template('index.html', myData=[data.values], columns=data.columns)
-    else: 
-        Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url()).get_top_30_table_elements_into_array(), os.path.expanduser('csvfiles/'), timestr + ".csv") #, top_30.get_table_headers_array())
-        data = pd.read_csv('csvfiles/' + timestr + '.csv', header=None, encoding='ISO-8859-1')
+    try:
+        if request.method == "POST":
+            Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url() + "/default.aspx?q=&ql=&l=&ll=&id=" + str(categories[request.form['category']]) + "&p=6&e=5&sortby=&orderby=").get_top_30_table_elements_into_array(), os.path.expanduser('csvfiles/'), timestr + ".csv") #, top_30.get_table_headers_array())
+            data = pd.read_csv('csvfiles/' + timestr + '.csv', header=None, encoding='ISO-8859-1')
+            data.columns=["", "Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
+            shutil.copy('csvfiles/' + timestr + '.csv', 'recentcsv/recentcsv.csv')
+            # return render_template('index.html', myData=[data.values], columns=data.columns)
+            return render_template('index.html', myData=[data.values], columns=data.columns)
+        else: 
+            Top30CSVGenerator().generate_top_30_csv(ItJobsWatchHomePageTop30(itjobswatch_home_page_url()).get_top_30_table_elements_into_array(), os.path.expanduser('csvfiles/'), timestr + ".csv") #, top_30.get_table_headers_array())
+            data = pd.read_csv('csvfiles/' + timestr + '.csv', header=None, encoding='ISO-8859-1')
+            data.columns=["", "Job Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
+            shutil.copy('csvfiles/' + timestr + '.csv', 'recentcsv/recentcsv.csv')
+            return render_template('index.html', myData=[data.values], columns=data.columns)
+    except:
+        print('failed to grab from itjobswatch')
+        list_of_files = glob.glob('csvfiles/*.csv')
+        latest_file = max(list_of_files, key=os.path.getctime)
+        data = pd.read_csv(latest_file, header=None, encoding='ISO-8859-1')
         data.columns=["", "Job Ranking Over Last 6 Months (up to 8 March 2022)", "YoY (Year-over-Year) Change","Median Salary","Median Salary YoY (Year-over-Year) Change","Total Unique Permanent Jobs During 6 Month Period","Current Live Jobs"]
         shutil.copy('csvfiles/' + timestr + '.csv', 'recentcsv/recentcsv.csv')
         return render_template('index.html', myData=[data.values], columns=data.columns)
+
 
 @app.route("/download/", methods=['GET', 'POST'])
 def download():
@@ -79,6 +90,7 @@ def tools():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    # app.run(host="0.0.0.0")
+    app.run()
 
 
